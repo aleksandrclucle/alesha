@@ -382,6 +382,17 @@ class BluetoothTerminal {
   _log(...messages) {
     console.log(...messages); // eslint-disable-line no-console
   }
+
+  /**
+   * Split by length.
+   * @param {string} string
+   * @param {number} length
+   * @return {Array}
+   * @private
+   */
+  static _splitByLength(string, length) {
+    return string.match(new RegExp('(.|[\r\n]){1,' + length + '}', 'g'));
+  }
 }
 
 // Export class as a module to support requiring.
