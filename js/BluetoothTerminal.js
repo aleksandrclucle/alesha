@@ -139,14 +139,14 @@ class BluetoothTerminal {
    */
   send(data) {
     // Convert data to the string using global object.
-    data = String(data||'');
+    data = String(data || '');
 
     // Return rejected promise immediately if data is empty.
     if (!data) {
       return Promise.reject(new Error('Data must be not empty'));
     }
 
-    data += this._sendSeparator;
+
 
     // Split data to chunks by max characteristic value length.
     const chunks = this.constructor._splitByLength(data,
